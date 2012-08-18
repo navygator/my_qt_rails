@@ -1,13 +1,5 @@
 MyQtRails::Application.routes.draw do
 
-  get "users/index"
-
-  get "users/show"
-
-  get "users/edit"
-
-  get "users/update"
-
   match 'auth/:provider/callback', to: 'sessions#create'
   match 'auth/failure', to: redirect('/')
   match 'signout', to: 'sessions#destroy', as: 'signout'
