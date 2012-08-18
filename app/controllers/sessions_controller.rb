@@ -5,6 +5,10 @@ class SessionsController < ApplicationController
     redirect_to root_path
   end
 
+  def destroy
+    sign_out
+  end
+
   protected
   def auth_hash
     request.env['omniauth.auth']
