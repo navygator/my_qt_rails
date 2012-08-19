@@ -7,13 +7,12 @@ MyQtRails::Application.routes.draw do
 
   match 'requests/:id/deny', to: 'users#deny', as: 'deny_request'
   match 'requests/:id/approve', to: 'users#approve', as: 'approve_request'
-  match 'requests/deny', to: 'users#deny_all', as: 'deny__all_request'
+  match 'requests/deny', to: 'users#deny_all', as: 'deny_all_request'
 
-  resources :users do
-    member do
-      post :unfriend, :unfriend_all
-    end
-  end
+  match 'friends/:id/unfriend', to: 'users#unfriend', as: 'unfriend'
+  match 'friends/unfriend_all', to: 'users#unfriend_all', as: 'unfriend_all'
+
+  resources :users
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

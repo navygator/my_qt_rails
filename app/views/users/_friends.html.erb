@@ -7,7 +7,7 @@
       </div>
       <div class="user-controls">
         <%= link_to "delete",
-                    unfriend_user_path(current_user.id, friend.id),
+                    unfriend_path(friend.id),
                     class: "btn btn-danger",
                     method: :post,
                     data: { confirm: "Are you sure?" } %>
@@ -15,5 +15,5 @@
     </li>
   <% end %>
 </ul>
-<%= link_to "delete all", unfriend_all_user_path, class: "btn btn-danger",
+<%= link_to "delete all", unfriend_all_path, class: "btn btn-danger",
             method: :post if friends.count > 0 %>

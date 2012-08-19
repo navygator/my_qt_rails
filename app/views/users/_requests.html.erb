@@ -8,12 +8,13 @@
         <div class="user-controls">
           <%= link_to "approve",
                       approve_request_path(request.id),
-                      class: "btn btn-primary" %>
+                      class: "btn btn-primary", method: :post %>
           <%= link_to "deny",
                       deny_request_path(request.id),
-                      class: "btn" %>
+                      class: "btn", method: :post  %>
         </div>
       </li>
   <% end %>
 </ul>
-<%= link_to "deny all", deny_all_request_path , class: "btn btn-danger" if requests.count > 0 %>
+<%= link_to "deny all", deny_all_request_path , class: "btn btn-danger",
+            method: :post  if requests.count > 0 %>
