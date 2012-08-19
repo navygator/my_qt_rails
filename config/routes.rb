@@ -7,8 +7,8 @@ MyQtRails::Application.routes.draw do
 
   resources :users do
     member do
-      post :unfriend, :unfriend_all
       post :approve, :deny, :deny_all
+      post :unfriend, :unfriend_all
     end
   end
 
