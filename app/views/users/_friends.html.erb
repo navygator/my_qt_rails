@@ -1,5 +1,5 @@
 <ul class="friends">
   <% friends.each do |friend| %>
-    <li><%= friend[:firstName] %></li>
+    <li><%= "#{friend[:firstName]} #{friend[:lastName]}" %></li>
   <% end %>
 </ul>

@@ -1,5 +1,6 @@
 <% provide(:title, @user.name) %>
 <% f_user = @client.user("self") %>
+<% friends = @client.user_friends("self") %>
 <div class="row">
   <aside class="span4 user-info" >
     <section>
@@ -8,17 +9,12 @@
         <%= @user.name %>
       </h1>
     </section>
-    <% friends = @client.user_friends("self") %>
-    <%= debug(friends.items) %>
-    <% friends.items.each do |friend| %>
-        <%= friend.firstName %>
-    <% end %>
   </aside>
   <div class="span6">
     <div class="tabbable tabs-right">
       <ul class="nav nav-tabs">
         <li class="active"><a href="#tab_friends" data-toggle="tab">
-          Friends (<%= friends.count %>)</a></li>
+          Friends (<%= friends.items.count %>)</a></li>
         <li><a href="#tab_requests" data-toggle="tab">
           Requests (<%= @client.user_requests.count %>)</a></li>
       </ul>
@@ -27,6 +23,7 @@
           <%= render 'friends', friends: friends.items %>
         </div>
         <div class="tab-pane" id="tab_requests">
+          <%= render 'requests', requests: @client.user_requests %>
         </div>
       </div>
     </div>
