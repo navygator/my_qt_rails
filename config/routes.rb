@@ -5,7 +5,11 @@ MyQtRails::Application.routes.draw do
   match 'signout', to: 'sessions#destroy', as: 'signout'
   match 'help', to: 'pages#help', as: 'help'
 
-  resources :users
+  resources :users do
+    member do
+      post :delete_friend, :delete_all_friends
+    end
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

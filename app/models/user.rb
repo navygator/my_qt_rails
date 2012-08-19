@@ -22,6 +22,18 @@ class User < ActiveRecord::Base
     client.user_friends("self").items
   end
 
+  def deny_request
+
+  end
+
+  def approve_request
+
+  end
+
+  def delete_friend
+
+  end
+
   def client
     @client ||= Foursquare2::Client.new(:oauth_token => oauth_token)
   end

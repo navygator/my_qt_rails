@@ -1,5 +1,13 @@
-<ul class="friends">
+<ul class="users">
   <% friends.each do |friend| %>
-    <li><%= "#{friend[:firstName]} #{friend[:lastName]}" %></li>
+    <li>
+      <div class="user-info">
+        <%= image_tag friend.photo, class: "avatar" %>
+        <%= "#{friend[:firstName]} #{friend[:lastName]}" %>
+      </div>
+      <div class="user-controls">
+        <%= link_to delete_friend_user_path friend.id %>
+      </div>
+    </li>
   <% end %>
 </ul>
