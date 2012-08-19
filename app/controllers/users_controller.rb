@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     client = Foursquare2::Client.new(:oauth_token => @user.oauth_token)
-    @f_requests = client.user_friend_request
+    @f_requests = client.user_requests
   end
 
   def edit
