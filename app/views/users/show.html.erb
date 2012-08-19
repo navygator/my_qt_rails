@@ -1,7 +1,7 @@
 <% provide(:title, @user.name) %>
 <% f_user = @client.user("self") %>
 <div class="row">
-  <aside class="span4">
+  <aside class="span4" >
     <section>
       <%= image_tag f_user[:photo] %>
       <h1>
@@ -13,7 +13,7 @@
     <% end %>
   </aside>
   <div class="span4 offset5">
-    <div class="tabbable"> <!-- Only required for left/right tabs -->
+    <div class="tabbable tabs-right">
       <ul class="nav nav-tabs">
         <li class="active"><a href="#tab1" data-toggle="tab">Section 1</a></li>
         <li><a href="#tab2" data-toggle="tab">Section 2</a></li>
