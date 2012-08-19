@@ -10,7 +10,7 @@
     </section>
     <% friends = @client.user_friends("self") %>
     <%= debug(friends.items) %>
-    <% friends.each do |friend| %>
+    <% friends.items.each do |friend| %>
         <%= friend.class %>
     <% end %>
   </aside>
