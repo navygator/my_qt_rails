@@ -8,7 +8,8 @@
         <%= @user.name %>
       </h1>
     </section>
-    <% @client.user_friends("self").each do |friend| %>
+    <% friends = @client.user_friends("self") %>
+    <% friends.each do |friend| %>
         <%= friend.items.firstName %>
     <% end %>
   </aside>
@@ -22,10 +23,10 @@
       </ul>
       <div class="tab-content">
         <div class="tab-pane active" id="tab_friends">
-          <p>I'm in Section 1.</p>
+          <%= render 'friends', friends: friends %>
         </div>
         <div class="tab-pane" id="tab_requests">
-          <p>Howdy, I'm in Section 2.</p>
+          <%= render 'friends', friends: friends %>
         </div>
       </div>
     </div>
