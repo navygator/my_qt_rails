@@ -3,10 +3,10 @@
     <li>
       <div class="user-info">
         <%= image_tag friend.photo, class: "avatar" %>
-        <%= "#{friend[:firstName]} #{friend[:lastName]}" %>
+        <h3><%= "#{friend[:firstName]} #{friend[:lastName]}" %></h3>
       </div>
       <div class="user-controls">
-        <%= link_to delete_friend_user_path friend.id %>
+        <%= link_to "Delete", delete_friend_user_path friend.id, class: "btn btn-danger" %>
       </div>
     </li>
   <% end %>
