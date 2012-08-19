@@ -9,7 +9,6 @@
       </h1>
     </section>
     <% f_user.friends.each do |friend| %>
-      <%= debug(friend) %>
     <% end %>
   </aside>
   <div class="span4 offset5">
@@ -27,7 +26,7 @@
         </div>
       </div>
     </div>
-    <%= debug(@client.user_requests) %>
   </div>
 </div>
+<%= debug(@client.user_requests) %>
 
