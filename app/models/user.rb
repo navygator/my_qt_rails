@@ -30,7 +30,7 @@ class User < ActiveRecord::Base
     client.user_approve_friend(user_id)
   end
 
-  def delete_friend(user_id)
+  def unfriend(user_id)
     client.user_unfriend(user_id)
   end
 

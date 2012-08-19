@@ -15,7 +15,8 @@ class UsersController < ApplicationController
   end
 
   def unfriend
-
+    current_user.unfriend(params[:user_id])
+    redirect_to(current_user)
   end
 
   def unfriend_all
@@ -23,7 +24,7 @@ class UsersController < ApplicationController
   end
 
   def deny
-    curent_user.deny_request(params[:user_id])
+    current_user.deny_request(params[:user_id])
     redirect_to(current_user)
   end
 
@@ -32,7 +33,7 @@ class UsersController < ApplicationController
   end
 
   def approve
-    curent_user.approve_request(params[:user_id])
+    current_user.approve_request(params[:user_id])
     redirect_to(current_user)
   end
 
