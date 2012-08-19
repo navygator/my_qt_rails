@@ -7,8 +7,8 @@
       </h1>
     </section>
     <%= debug(@user) %>
-    <%= debug(client.user("self")) %>
-    <%     @f_requests = client.user_requests
+    <%= debug(@client.user("self")) %>
+    <%     @f_requests = @client.user_requests
     %>
     <%= debug(@f_requests) %>
   </aside>
