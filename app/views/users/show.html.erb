@@ -10,7 +10,7 @@
     </section>
     <% friends = @client.user_friends("self") %>
     <% friends.each do |friend| %>
-        <%= friend.items.firstName %>
+        <%= debug(friend) %>
     <% end %>
   </aside>
   <div class="span6">
@@ -32,5 +32,4 @@
     </div>
   </div>
 </div>
-<%= debug(@client.user_requests) %>
 
