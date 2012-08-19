@@ -5,9 +5,12 @@ MyQtRails::Application.routes.draw do
   match 'signout', to: 'sessions#destroy', as: 'signout'
   match 'help', to: 'pages#help', as: 'help'
 
+  match 'requests/:id/deny', to: 'users#deny', as: 'deny_request'
+  match 'requests/:id/approve', to: 'users#approve', as: 'approve_request'
+  match 'requests/deny', to: 'users#deny_all', as: 'deny__all_request'
+
   resources :users do
     member do
-      post :approve, :deny, :deny_all
       post :unfriend, :unfriend_all
     end
   end

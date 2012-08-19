@@ -7,13 +7,13 @@
         </div>
         <div class="user-controls">
           <%= link_to "approve",
-                      approve_user_path(request.id),
+                      approve_request_path(request.id),
                       class: "btn btn-primary" %>
           <%= link_to "deny",
-                      deny_user_path(request.id),
+                      deny_request_path(request.id),
                       class: "btn" %>
         </div>
       </li>
   <% end %>
 </ul>
-<%= link_to "deny all", deny_all_user_path , class: "btn btn-danger" if requests.count > 0 %>
+<%= link_to "deny all", deny_all_request_path , class: "btn btn-danger" if requests.count > 0 %>
