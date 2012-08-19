@@ -8,9 +8,10 @@
         <%= @user.name %>
       </h1>
     </section>
-    <% friends = @client.user_friends("self")[1] %>
+    <% friends = @client.user_friends("self") %>
+    <%= friends.class %>
     <% friends.each do |friend| %>
-        <%= debug(friend) %>
+        <%= friend.class %>
     <% end %>
   </aside>
   <div class="span6">
@@ -23,10 +24,8 @@
       </ul>
       <div class="tab-content">
         <div class="tab-pane active" id="tab_friends">
-          <%= render 'friends', friends: friends %>
         </div>
         <div class="tab-pane" id="tab_requests">
-          <%= render 'friends', friends: friends %>
         </div>
       </div>
     </div>
