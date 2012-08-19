@@ -4,14 +4,16 @@
   <aside class="span4">
     <section>
       <h1>
-        <%= @user.name %>
         <%= image_tag f_user[:photo] %>
+        <%= @user.name %>
       </h1>
     </section>
     <% f_user.friends.each do |friend| %>
       <%= debug(friend) %>
     <% end %>
   </aside>
-  <%= debug(@client.user_requests) %>
+  <aside class="span4 offset5">
+    <%= debug(@client.user_requests) %>
+  </aside>
 </div>
 
