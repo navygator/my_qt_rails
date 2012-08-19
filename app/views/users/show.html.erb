@@ -1,10 +1,8 @@
 <% provide(:title, @user.name) %>
-<% f_user = @client.user("self") %>
-<% friends = @client.user_friends("self") %>
 <div class="row">
   <aside class="span4 user-info" >
     <section>
-      <%= image_tag f_user[:photo], class: "avatar" %>
+      <%= image_tag @user.foursquare_user[:photo], class: "avatar" %>
       <h1>
         <%= @user.name %>
       </h1>
@@ -14,16 +12,16 @@
     <div class="tabbable tabs-right">
       <ul class="nav nav-tabs">
         <li class="active"><a href="#tab_friends" data-toggle="tab">
-          Friends (<%= friends.items.count %>)</a></li>
+          Friends (<%= @user.friends.count %>)</a></li>
         <li><a href="#tab_requests" data-toggle="tab">
-          Requests (<%= @client.user_requests.count %>)</a></li>
+          Requests (<%= @user.requests.count %>)</a></li>
       </ul>
       <div class="tab-content">
         <div class="tab-pane active" id="tab_friends">
-          <%= render 'friends', friends: friends.items %>
+          <%= render 'friends', friends: @user.friends %>
         </div>
         <div class="tab-pane" id="tab_requests">
-          <%= render 'requests', requests: @client.user_requests %>
+          <%= render 'requests', requests: @user.requests %>
         </div>
       </div>
     </div>

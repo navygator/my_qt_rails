@@ -9,4 +9,21 @@ class User < ActiveRecord::Base
       user.save!
     end
   end
+
+  def initialize(attributes = nil, options = {})
+    super(attributes, options)
+    @client = Foursquare2::Client.new(:oauth_token => oauth_token) unless oauth_token.nil?
+  end
+
+  def foursquare_user
+    @client.user("self")
+  end
+
+  def requests
+    @client.user_requests
+  end
+
+  def friends
+    @client.user_friends("self").items
+  end
 end
