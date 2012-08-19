@@ -23,7 +23,7 @@ class UsersController < ApplicationController
   end
 
   def deny
-    curent_user.deny_request(params[:id])
+    curent_user.deny_request(params[:user_id])
     redirect_to(current_user)
   end
 
@@ -32,7 +32,7 @@ class UsersController < ApplicationController
   end
 
   def approve
-    curent_user.approve_request(params[:id])
+    curent_user.approve_request(params[:user_id])
     redirect_to(current_user)
   end
 
@@ -47,6 +47,6 @@ class UsersController < ApplicationController
 
   def correct_user
     @user = User.find(params[:id])
-    redirect_to root_path, error: "You are not allowed" unless (current_user?(@user) || current_user.admin?)
+    redirect_to root_path, error: "You are not allowed" unless current_user?(@user)
   end
 end
