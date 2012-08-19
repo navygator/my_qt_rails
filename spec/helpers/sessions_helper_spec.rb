@@ -11,5 +11,35 @@ require 'spec_helper'
 #   end
 # end
 describe SessionsHelper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  let(:user) { FactoryGirl.create(:user) }
+  before { helper.sign_in(user) }
+
+  describe "#sign_in" do
+    it "should save remember token to session object" do
+      session[:remember_token].should eq user.uid
+    end
+  end
+
+  describe "#current_user" do
+    it "should return signed in user" do
+      helper.current_user.should eq user
+    end
+  end
+
+  describe "#signed_in?" do
+    it "should return true if user signed in" do
+      helper.signed_in?.should be_true
+    end
+  end
+
+  describe "#current_user?" do
+    it "should return true if it's current user" do
+      helper.current_user?(user).should be_true
+    end
+
+    it "should return false if it's not current user" do
+      another_user = FactoryGirl.create(:user)
+      helper.current_user?(another_user).should be_false
+    end
+  end
 end

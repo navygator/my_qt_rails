@@ -12,6 +12,8 @@ end
 
 group :test do
   gem 'capybara', '1.1.2'
+  gem 'factory_girl_rails'
+  gem 'cucumber-rails', require: false
 end
 
 group :production do
@@ -19,6 +21,7 @@ group :production do
 end
 
 gem 'omniauth-foursquare'
+gem 'foursquare2'
 gem 'bootstrap-sass', '2.0.0'
 
 # Gems used only for assets and not required
