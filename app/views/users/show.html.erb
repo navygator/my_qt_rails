@@ -1,15 +1,17 @@
 <% provide(:title, @user.name) %>
+<% f_user = @client.user("self") %>
 <div class="row">
   <aside class="span4">
     <section>
       <h1>
         <%= @user.name %>
+        <%= image_tag f_user[:photo] %>
       </h1>
     </section>
-    <%= debug(@user) %>
-    <%= debug(@client.user("self")) %>
-    <%     @f_requests = @client.user_requests
-    %>
-    <%= debug(@f_requests) %>
+    <% f_user.friends.each do |friend| %>
+      <%= debug(friend) %>
+    <% end %>
   </aside>
+  <%= debug(@client.user_requests) %>
 </div>
+
