@@ -8,20 +8,23 @@
         <%= @user.name %>
       </h1>
     </section>
+    <%= debug(@user) %>
     <% f_user.friends.each do |friend| %>
     <% end %>
   </aside>
   <div class="span6">
     <div class="tabbable tabs-right">
       <ul class="nav nav-tabs">
-        <li class="active"><a href="#tab1" data-toggle="tab">Section 1</a></li>
-        <li><a href="#tab2" data-toggle="tab">Section 2</a></li>
+        <li class="active"><a href="#tab_friends" data-toggle="tab">
+          Friends</a></li>
+        <li><a href="#tab_requests" data-toggle="tab">
+          Requests (<%= @client.user_requests.count %>)</a></li>
       </ul>
       <div class="tab-content">
-        <div class="tab-pane active" id="tab1">
+        <div class="tab-pane active" id="tab_friends">
           <p>I'm in Section 1.</p>
         </div>
-        <div class="tab-pane" id="tab2">
+        <div class="tab-pane" id="tab_requests">
           <p>Howdy, I'm in Section 2.</p>
         </div>
       </div>
