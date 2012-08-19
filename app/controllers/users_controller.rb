@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   before_filter :not_signed_user, :only => [:index, :show]
-  before_filter :correct_user, :omly => [:edit]
+  before_filter :correct_user, :only => [:edit]
 
   def index
   end
