@@ -20,7 +20,10 @@ class UsersController < ApplicationController
   end
 
   def unfriend_all
-
+    current_user.friends.each do |friend|
+      current_user.unfriend(friend.id)
+    end
+    redirect_to(current_user)
   end
 
   def deny
@@ -29,7 +32,10 @@ class UsersController < ApplicationController
   end
 
   def deny_all
-
+    current_user.requests.each do |request|
+      current_user.deny_request(request.id)
+    end
+    redirect_to(current_user)
   end
 
   def approve
