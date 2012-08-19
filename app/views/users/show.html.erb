@@ -1,7 +1,7 @@
 <% provide(:title, @user.name) %>
 <% f_user = @client.user("self") %>
 <div class="row">
-  <aside class="span4" >
+  <aside class="span4 user-info" >
     <section>
       <%= image_tag f_user[:photo], class: "avatar" %>
       <h1>
@@ -16,7 +16,7 @@
     <div class="tabbable tabs-right">
       <ul class="nav nav-tabs">
         <li class="active"><a href="#tab_friends" data-toggle="tab">
-          Friends</a></li>
+          Friends (<%= f_user.friends.count %>)</a></li>
         <li><a href="#tab_requests" data-toggle="tab">
           Requests (<%= @client.user_requests.count %>)</a></li>
       </ul>
