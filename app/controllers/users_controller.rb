@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   before_filter :not_signed_user, :only => [:index, :show]
-  before_filter :correct_user, :only => [:edit]
+  before_filter :correct_user, :except => [:index, :show]
 
   def index
   end
@@ -20,6 +20,20 @@ class UsersController < ApplicationController
 
   def unfriend_all
 
+  end
+
+  def deny
+    curent_user.deny_request(params[:id])
+    redirect_to(current_user)
+  end
+
+  def deny_all
+
+  end
+
+  def approve
+    curent_user.approve_request(params[:id])
+    redirect_to(current_user)
   end
 
   private

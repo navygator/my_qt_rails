@@ -22,12 +22,12 @@ class User < ActiveRecord::Base
     client.user_friends("self").items
   end
 
-  def deny_request
-
+  def deny_request(user_id)
+    client.user_deny_friend(user_id)
   end
 
-  def approve_request
-
+  def approve_request(user_id)
+    client.user_approve_friend(user_id)
   end
 
   def delete_friend
