@@ -8,9 +8,8 @@
         <%= @user.name %>
       </h1>
     </section>
-    <%= debug(@user) %>
     <% @client.user_friends("self").each do |friend| %>
-        <%= friend.firstName %>
+        <%= friend.items.firstName %>
     <% end %>
   </aside>
   <div class="span6">
