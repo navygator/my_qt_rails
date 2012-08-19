@@ -1,4 +1,4 @@
-<ul class="requests">
+<ul class="users">
   <% requests.each do |request| %>
       <li>
         <div class="user-info">
@@ -16,3 +16,4 @@
       </li>
   <% end %>
 </ul>
+<%= link_to "deny all", "#", class: "btn btn-danger" if requests.count > 0 %>

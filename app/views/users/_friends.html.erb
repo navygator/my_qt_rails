@@ -13,5 +13,5 @@
       </div>
     </li>
   <% end %>
-  <%= link_to "delete all", unfriend_all_user_path, class: "btn btn-danger" %>
+  <%= link_to "delete all", unfriend_all_user_path, class: "btn btn-danger" if friends.count > 0 %>
 </ul>
