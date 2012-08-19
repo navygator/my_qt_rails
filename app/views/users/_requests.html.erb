@@ -1,5 +1,18 @@
 <ul class="requests">
   <% requests.each do |request| %>
-      <li><%= "#{request[:firstName]} #{request[:lastName]}" %></li>
+      <li>
+        <div class="user-info">
+          <%= image_tag request.photo, class: "avatar" %>
+          <%= "#{request[:firstName]} #{request[:lastName]}" %>
+        </div>
+        <div class="user-controls">
+          <%= link_to "approve",
+                      delete_friend_user_path(friend.id),
+                      class: "btn btn-primary" %>
+          <%= link_to "deny",
+                      delete_friend_user_path(friend.id),
+                      class: "btn" %>
+        </div>
+      </li>
   <% end %>
 </ul>

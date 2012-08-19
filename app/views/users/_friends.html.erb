@@ -7,10 +7,11 @@
       </div>
       <div class="user-controls">
         <%= link_to "delete",
-                    delete_friend_user_path(friend.id),
+                    unfriend_user_path(friend.id),
                     class: "btn btn-danger",
                     data: { confirm: "Are you sure?" } %>
       </div>
     </li>
   <% end %>
+  <%= link_to "delete all", unfriend_all_user, class: "btn btn-danger" %>
 </ul>

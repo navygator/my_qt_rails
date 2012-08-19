@@ -7,7 +7,7 @@ MyQtRails::Application.routes.draw do
 
   resources :users do
     member do
-      post :delete_friend, :delete_all_friends
+      post :unfriend, :unfriend_all
     end
   end
 
