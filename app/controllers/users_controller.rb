@@ -14,6 +14,14 @@ class UsersController < ApplicationController
   def edit
   end
 
+  def unfriend
+
+  end
+
+  def unfriend_all
+
+  end
+
   private
   def signed_user
     redirect_to root_path if signed_in?
